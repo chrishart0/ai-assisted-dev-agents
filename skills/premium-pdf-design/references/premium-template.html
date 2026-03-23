@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium PDF Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * PREMIUM PDF TEMPLATE
+         * Production-tested across multiple 20+ page ebooks.
+         *
+         * Font pairing: Playfair Display (headings) + Source Sans 3 (body)
+         * Palette: Navy (#1a1a2e) + Gold (#b8963e) + Cream (#fdfcfb)
+         * Rule: 60% white space, 30% text, 10% accent
+         *
+         * This file demonstrates every component available in the system.
+         * Copy the CSS wholesale. Copy HTML patterns as needed.
+         */
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            /* === PALETTE === */
+            --primary: #B8304F;          /* Deep crimson - used sparingly */
+            --primary-dark: #8f2540;
+            --primary-light: #f4e8eb;
+            --secondary: #1a1a2e;        /* Dark navy - headings, stat boxes, key insights */
+            --secondary-light: #2a2a42;
+            --text: #2d2a28;             /* Near-black body text */
+            --text-light: #5a5652;       /* Muted body text */
+            --muted: #9b9894;            /* Footer, captions */
+            --bg: #fdfcfb;              /* Warm off-white page background */
+            --gray-50: #f8f7f5;          /* Callout backgrounds */
+            --gray-100: #f0eeeb;         /* Subtle borders */
+            --gray-200: #e2dfd9;         /* Visible borders */
+            --gray-300: #d4d1cd;         /* Numbered card digits */
+            --accent-gold: #b8963e;      /* THE accent color. Labels, borders, dividers. */
+            --accent-gold-light: #f5f0e3;
+        }
+
+        @page { size: 8.5in 11in; margin: 0; }
+
+        @media print {
+            body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .page { page-break-after: always; page-break-inside: avoid; }
+        }
+
+        body {
+            font-family: 'Source Sans 3', 'Source Sans Pro', Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.6;
+            color: var(--text);
+            background: #d8d5d0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === PAGE === */
+        .page {
+            width: 8.5in;
+            height: 11in;
+            padding: 0.5in 0.75in 0.75in;
+            position: relative;
+            overflow: hidden;        /* DANGER: silently clips content. Check overflow after every edit. */
+            background: var(--bg);
+            margin: 0 auto;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+        }
+        @media screen { .page { margin: 20px auto; } }
+
+        /* === FOOTER === */
+        .page-footer {
+            position: absolute;
+            bottom: 0.3in; left: 0.75in; right: 0.75in;
+            font-size: 7pt; color: var(--muted);
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 0.75px solid var(--gray-200);
+            padding-top: 8px;
+        }
+        .page-footer .footer-title { font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; font-size: 6.5pt; }
+        .page-footer .footer-page { font-weight: 600; color: var(--secondary); font-size: 8pt; }
+
+        /* === TYPOGRAPHY === */
+        h1, h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: var(--secondary); }
+
+        /* Chapter opener */
+        .chapter-number { font-family: 'Source Sans 3', sans-serif; font-size: 8pt; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 8px; }
+        .chapter-title { font-size: 26pt; line-height: 1.12; color: var(--secondary); margin-bottom: 4px; }
+        .chapter-title::after { content: ''; display: block; width: 40px; height: 2.5px; background: var(--accent-gold); margin-top: 12px; margin-bottom: 14px; }
+        .chapter-subtitle { font-family: 'Source Sans 3', sans-serif; font-size: 10.5pt; font-weight: 400; color: var(--text-light); font-style: italic; margin-bottom: 10px; line-height: 1.5; }
+
+        /* Section headers: Source Sans 3 uppercase (NOT Playfair below 14pt) */
+        h3 { font-family: 'Source Sans 3', sans-serif; font-size: 11pt; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 14px; margin-bottom: 8px; color: var(--secondary); }
+        h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 11pt; font-weight: 700; margin-top: 12px; margin-bottom: 4px; color: var(--secondary); }
+
+        p { margin-bottom: 9px; }
+        strong { font-weight: 700; }
+
+        /* === COMPONENTS (ordered by emphasis, highest to lowest) === */
+
+        /* 1. KEY INSIGHT - Dark navy box. Max 1 per chapter. */
+        .key-insight { background: var(--secondary); color: white; padding: 14px 18px; margin: 12px 0; border-radius: 2px; border-left: 3px solid var(--accent-gold); }
+        .key-insight .insight-label { font-size: 7pt; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 5px; }
+        .key-insight p { font-size: 10pt; line-height: 1.55; margin: 0; }
+
+        /* 2. STAT ROW - Gold numbers on dark navy. Data punctuation. Max 1 per page. */
+        .stat-row { display: flex; gap: 10px; margin: 14px 0; }
+        .stat-row .stat-box { flex: 1; text-align: center; }
+        .stat-box { background: var(--secondary); color: white; padding: 12px 16px; margin: 8px 0; border-radius: 3px; }
+        .stat-box .stat-number { font-family: 'Playfair Display', serif; font-size: 26pt; font-weight: 800; line-height: 1; margin-bottom: 3px; color: var(--accent-gold); }
+        .stat-box .stat-label { font-size: 8pt; font-weight: 400; letter-spacing: 0.04em; opacity: 0.75; }
+
+        /* 3. HIGHLIGHT BOX - Gold left border on cream. For tips, rules, callouts. */
+        .highlight-box { background: var(--gray-50); border: 1px solid var(--gray-100); border-left: 2.5px solid var(--accent-gold); padding: 10px 14px; margin: 8px 0; border-radius: 0 2px 2px 0; }
+        .highlight-box .highlight-title { font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-gold); margin-bottom: 4px; }
+        .highlight-box p { margin-bottom: 4px; font-size: 9.5pt; }
+
+        /* 4. PULL QUOTE - Playfair italic with gold border. Max 1 per page, under 20 words. */
+        .pull-quote { border-left: 2.5px solid var(--accent-gold); padding: 12px 20px; margin: 14px 0; background: transparent; font-family: 'Playfair Display', Georgia, serif; font-size: 11pt; font-style: italic; color: var(--text-light); line-height: 1.55; }
+        .pull-quote cite { display: block; margin-top: 8px; font-style: normal; font-family: 'Source Sans 3', sans-serif; font-size: 7.5pt; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+
+        /* 5. TABLE - Navy headers, uppercase labels, generous padding. */
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        thead th { background: var(--secondary); color: white; padding: 8px 12px; text-align: left; font-weight: 600; font-size: 7.5pt; letter-spacing: 0.06em; text-transform: uppercase; }
+        tbody td { padding: 7px 12px; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+        tbody tr:nth-child(even) { background: var(--gray-50); }
+
+        /* 6. TEMPLATE BOX - Fill-in content with placeholder text. */
+        .template-box { background: var(--gray-50); border: 1px solid var(--gray-200); padding: 12px 16px; margin: 10px 0; border-radius: 2px; font-size: 9.5pt; line-height: 1.55; }
+        .template-box .template-label { font-size: 8pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
+        .template-box .template-placeholder { color: var(--primary); font-weight: 600; }
+
+        /* 7. DO/DON'T COMPARISON */
+        .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+        .do-box { padding: 8px 12px; border-radius: 2px; font-size: 9pt; background: #f0faf0; border-left: 3px solid #2d8a2d; }
+        .dont-box { padding: 8px 12px; border-radius: 2px; font-size: 9pt; background: #faf0f0; border-left: 3px solid #c44; }
+        .do-box .do-label { font-weight: 700; color: #2d8a2d; font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+        .dont-box .do-label { font-weight: 700; color: #c44; font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+
+        /* 8. NUMBERED CARDS - Muted numbers, bold titles lead hierarchy */
+        .numbered-card { display: flex; gap: 10px; margin: 6px 0; align-items: flex-start; }
+        .numbered-card .card-num { font-family: 'Playfair Display', serif; font-size: 16pt; font-weight: 700; color: var(--gray-300); line-height: 1; min-width: 22px; }
+        .numbered-card .card-content h4 { font-size: 10.5pt; margin: 0 0 2px; font-family: 'Source Sans 3', sans-serif; font-weight: 700; }
+        .numbered-card .card-content p { font-size: 9.5pt; margin: 0; color: var(--text-light); }
+
+        /* === LAYOUT === */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        ul, ol { padding-left: 18px; margin: 6px 0 10px; }
+        li { margin-bottom: 3px; line-height: 1.45; }
+    </style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<!-- Uses background image (marble/texture) on bottom 45% with dark overlay -->
+<div class="page" style="padding: 0; overflow: hidden; position: relative;">
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; overflow: hidden;">
+        <img src="YOUR-MARBLE-TEXTURE.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.55;">
+    </div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(180deg, rgba(26,26,46,0.7) 0%, rgba(26,26,46,0.85) 100%);"></div>
+    <div style="position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; padding: 0.6in 0.85in;">
+        <div style="padding-top: 0.1in;">
+            <div class="cover-brand" style="font-family: 'Source Sans 3', sans-serif; font-size: 11pt; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent-gold);">Brand Name</div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 1.6in;">
+            <div style="font-family: 'Source Sans 3', sans-serif; font-size: 8pt; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-200); display: inline-block;">Eyebrow Text Here</div>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 44pt; line-height: 1.12; color: var(--secondary); font-weight: 900;">Your Title<br>Goes Here</h1>
+            <div style="width: 50px; height: 2.5px; background: var(--accent-gold); margin: 18px 0;"></div>
+            <p style="font-family: 'Source Sans 3', sans-serif; font-size: 12.5pt; font-weight: 300; color: var(--text-light); line-height: 1.5; max-width: 4.5in;">
+                Subtitle text describing what this document covers.
+            </p>
+        </div>
+        <!-- Stats bar on dark marble section -->
+        <div style="margin-top: auto; padding-bottom: 0.1in;">
+            <div style="display: flex; gap: 50px; margin-bottom: 20px;">
+                <div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 28pt; font-weight: 800; color: var(--accent-gold); line-height: 1;">100+</div>
+                    <div style="font-size: 7pt; color: rgba(255,255,255,0.6); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;">Stat label</div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 9pt; color: rgba(255,255,255,0.5);">By <strong style="color: rgba(255,255,255,0.8); font-weight: 600;">Brand Name</strong></div>
+                <div style="background: var(--accent-gold); color: white; padding: 5px 14px; border-radius: 2px; font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Premium Resource</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== ART DIVIDER PAGE ==================== -->
+<div class="page" style="padding: 0; overflow: hidden;">
+    <img src="YOUR-ART.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+</div>
+
+<!-- ==================== CONTENT PAGE (all components) ==================== -->
+<div class="page">
+    <div class="chapter-number">Chapter 1</div>
+    <h2 class="chapter-title" style="font-family: 'Playfair Display', serif;">Chapter title in Playfair</h2>
+    <p class="chapter-subtitle">Italic subtitle describing this chapter's contents.</p>
+
+    <p>Body paragraph in Source Sans 3 at 10.5pt. This is the standard body text treatment. Keep paragraphs to 1-3 sentences. Margin-bottom is 9px.</p>
+
+    <h3>Section header in Source Sans uppercase</h3>
+
+    <p>Another body paragraph. The h3 uses Source Sans 3 (not Playfair) because Playfair loses elegance below 14pt. This was a lesson learned in production.</p>
+
+    <div class="stat-row">
+        <div class="stat-box">
+            <div class="stat-number">87%</div>
+            <div class="stat-label">Gold numbers on dark navy</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">+41%</div>
+            <div class="stat-label">Three stats per row max</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">500M</div>
+            <div class="stat-label">Data punctuation marks</div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <div class="highlight-title">Highlight box title</div>
+        <p>Gold left border on cream background. For tips, rules, secondary callouts.</p>
+        <p style="margin:0;">Multiple paragraphs are fine. Keep text at 9.5pt.</p>
+    </div>
+
+    <div class="pull-quote">
+        "Pull quotes use Playfair Display italic. Max one per page, under 20 words."
+        <cite>Attribution in Source Sans uppercase</cite>
+    </div>
+
+    <div class="key-insight">
+        <div class="insight-label">Key insight</div>
+        <p>Dark navy box with gold left border and gold label. <strong>Max 1 per chapter.</strong> Reserve for the single most important takeaway. Everything else gets the lighter highlight-box treatment.</p>
+    </div>
+
+    <div class="page-footer">
+        <span class="footer-title">Document Title Here</span>
+        <span class="footer-page">3</span>
+    </div>
+</div>
+
+<!-- ==================== CONTENT PAGE (tables + comparisons) ==================== -->
+<div class="page">
+    <h3>Tables</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Column A</th>
+                <th>Column B</th>
+                <th>Column C</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Row 1</strong></td><td>Navy headers, uppercase labels</td><td>7.5pt, 0.06em spacing</td></tr>
+            <tr><td><strong>Row 2</strong></td><td>Body cells at 9pt, 7px 12px padding</td><td>Alternating row shading</td></tr>
+            <tr><td><strong>Row 3</strong></td><td>All tables must use identical sizing</td><td>Consistency is premium</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Do / Don't comparison</h3>
+
+    <div class="do-dont">
+        <div class="do-box">
+            <div class="do-label">Do this</div>
+            <ul><li>Green accent, cream background</li><li>Keep to 3-5 items</li></ul>
+        </div>
+        <div class="dont-box">
+            <div class="do-label">Not this</div>
+            <ul><li>Red accent, pink background</li><li>Mirror the do-box structure</li></ul>
+        </div>
+    </div>
+
+    <h3>Numbered cards</h3>
+
+    <div class="numbered-card">
+        <div class="card-num">1</div>
+        <div class="card-content">
+            <h4>Muted number, bold title leads</h4>
+            <p>The number is gray (#d4d1cd), not the accent color. The bold title is the loudest element.</p>
+        </div>
+    </div>
+
+    <div class="numbered-card">
+        <div class="card-num">2</div>
+        <div class="card-content">
+            <h4>Content description at 9.5pt muted</h4>
+            <p>Keep descriptions to 1-2 lines. These work for steps, barriers, principles.</p>
+        </div>
+    </div>
+
+    <h3>Template box</h3>
+
+    <div class="template-box">
+        <div class="template-label">Template name</div>
+        <div class="template-line"><strong>Field:</strong> <span class="template-placeholder">[Placeholder in crimson]</span></div>
+        <div class="template-line" style="margin-top:4px;"><span class="template-placeholder">[Fill-in content]</span></div>
+    </div>
+
+    <div class="page-footer">
+        <span class="footer-title">Document Title Here</span>
+        <span class="footer-page">4</span>
+    </div>
+</div>
+
+<!-- ==================== BACK COVER ==================== -->
+<div class="page" style="padding: 0; overflow: hidden; position: relative;">
+    <img src="YOUR-BACK-COVER-ART.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div style="background: rgba(253,252,251,0.92); padding: 40px 50px; text-align: center; border-radius: 2px;">
+            <div style="font-family: 'Source Sans 3', sans-serif; font-size: 7pt; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 10px;">A Premium Resource From</div>
+            <div style="font-family: 'Playfair Display', serif; font-size: 24pt; font-weight: 900; color: var(--secondary); margin-bottom: 6px;">Brand Name</div>
+            <div style="font-family: 'Source Sans 3', sans-serif; font-size: 9pt; color: var(--text-light); font-style: italic;">Tagline goes here.</div>
+            <div style="width: 30px; height: 2px; background: var(--accent-gold); margin: 14px auto;"></div>
+            <div style="font-family: 'Source Sans 3', sans-serif; font-size: 8pt; color: var(--muted); letter-spacing: 0.06em;">website.com</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
