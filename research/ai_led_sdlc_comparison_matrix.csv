@@ -1,8 +1,0 @@
-Method,Family,Lifecycle coverage,Distinctive contribution,Main strength,Likely gap
-AWS AI-DLC,Enterprise orchestration,Intent/clarify/context/plan/build/review/deploy/ops,Adaptive depth + audit trail + persistent context,Great enterprise reference model,Less concrete about specific platform tooling
-Microsoft AI-led SDLC,Enterprise orchestration,Intent/spec/plan/code/review/deploy/operate,Agent chain from spec to SRE; deterministic deploy,Strong end-to-end example,Prescriptive around Azure/GitHub stack
-GitHub enterprise agentic SDLC,Platform-centric,Plan/prototype/create/test/review/optimize/secure,PR-centric agent workflows,Strong review/security/PR controls,Less explicit on upstream product discovery
-GitLab Duo Agent Platform,Platform-centric,Plan/develop/review/CI/CD fix/async collaboration,Multi-agent orchestration + flows + segregation of duties,Strong platform automation,Discovery/spec layer lighter than BMAD/Spec Kit
-OpenAI AI-native engineering,Enterprise operating model,Plan/design/build/test/review/document/deploy-maintain,Delegate/Review/Own + environment design,Clear human/agent role split,Less formal stage artifact model than BMAD/Spec Kit
-GitHub Spec Kit,Public/open method,Constitution/spec/plan/tasks/implement,Executable specs,Excellent context-to-task pipeline,Operations loop is outside the core method
-BMAD,Public/open method,Analysis/planning/solutioning/implementation,Progressive context engineering + depth tracks,Best public planning/context method,Ops/release loop less formal than enterprise lifecycle models
